@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kopi Kucing</title>
+
+    <!-- font -->
+    <!-- font dibawah diambil dari google font yang kemudian di copy codenya -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- feather icon -->
+    <!-- diambil dari FEATHER yang kemudian tersambung di github (code tersebut diambil dari github) -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- mystyle -->
+    <link rel="stylesheet" href="kucing.css" />
+    <!-- alpinejs -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- app -->
+    <script src="src\app.js"></script>
+  </head>
+  <body>
+    <!-- narbar start -->
+    <nav class="navbar">
+      <a href="#" class="navbar-logo">Kafe<span>Kucing</span></a>
+      <!-- agar kata kucingnya beda warna kita kasih span -->
+      <div class="navbar-nav">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#menu">Menu </a>
+        <a href="#merchandise">Merchandise</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="navbar-extra">
+        <a href="#" id="search-button"><i data-feather="search"></i></a>
+        <!--<i data-feather="search"></i> diambil dari FEATHER yang kemudian tersambung di github (code tersebut diambil dari github)  -->
+        <a href="#" id="shopping-cart-button"><i data-feather="shopping-cart"></i></a>
+        <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+      </div>
+      <!-- search form start -->
+      <div class="search-form">
+        <input type="search" id="search-box" placeholder="search here..." />
+        <label for="search-box"><i data-feather="search"></i></label>
+      </div>
+      <!-- akhiran -->
+      <!-- shopping cart -->
+      <div class="shopping-card">
+        <div class="card-item">
+          <img src="marchandise.img\tumbler1.1.jpeg" alt="merchandise1">
+          <div class="item-detail">
+            <h3>Tumbler Classic</h3>
+            <div class="item-price">650K</div>
+          </div>
+          <i data-feather="trash-2" class="remove"></i>
+        </div>
+        <div class="card-item">
+          <img src="marchandise.img\tumbler2.jpeg" alt="merchandise1">
+          <div class="item-detail">
+            <h3>Tumbler Disney</h3>
+            <div class="item-price">550K</div>
+          </div>
+          <i data-feather="trash-2" class="remove"></i>
+        </div>
+        <div class="card-item">
+          <img src="marchandise.img\tumbler5.jpeg" alt="merchandise1">
+          <div class="item-detail">
+            <h3>Tumbler</h3>
+            <div class="item-price">380K</div>
+          </div>
+          <i data-feather="trash-2" class="remove"></i>
+        </div>
+      </div>
+      <!-- akhiran -->
+    </nav>
+    <!-- akhiran -->
+
+    <!-- hero section -->
+    <section class="hero" id="home">
+      <main class="content">
+        <h1><span>Coffee</span> that inspires</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, sed!
+        </p>
+        <a href="#" class="cta">Beli Sekarang</a>
+      </main>
+    </section>
+    <!-- akhiran -->
+
+    <!-- about section -->
+    <section id="about" class="about">
+      <!-- cara agar cepat adalah section#about.about -->
+      <h2 class="tentang"><span>Tentang</span>Kami</h2>
+      <!-- span digunakan agar memodif kata agar berbeda warna dengan kata belakangnya -->
+
+      <div class="row">
+        <div class="about-img">
+          <img src="kopismall.jpg" alt="Tentang Kami" />
+        </div>
+        <div class="content">
+          <h3>Kenapa Memilih Brand Kopi Kami?</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem
+            voluptatibus cum omnis eius molestias necessitatibus.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur
+            sapiente porro eligendi? Assumenda nulla omnis reiciendis, vero cum
+            numquam asperiores.
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- akhiran -->
+
+    <!-- menu section -->
+    <section id="menu" class="menu">
+      <h2><span>Menu</span>Kami</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam sapiente
+        vitae quisquam tenetur fugit voluptatem.
+      </p>
+      <div class="row">
+        <div class="menu-card">
+          <div class="gambar">
+            <img
+              src="kopi6copy.jpeg"
+              alt="Americano"
+              class="menu-card gambar"
+            />
+          </div>
+          <h3 class="menu-card-title">- Americano -</h3>
+          <p class="menu-card-price">IDR 20K</p>
+        </div>
+        <div class="menu-card">
+          <div class="gambar">
+            <img src="kopi7d.jpeg" alt="Americano" class="menu-card gambar" />
+          </div>
+          <h3 class="menu-card-title">- Caramel Ice Coffee -</h3>
+          <p class="menu-card-price">IDR 37K</p>
+        </div>
+        <div class="menu-card">
+          <div class="gambar">
+            <img src="kopi7c.jpeg" alt="Americano" class="menu-card gambar" />
+          </div>
+          <h3 class="menu-card-title">- Coffee Palm Sugar Latte Ice -</h3>
+          <p class="menu-card-price">IDR 25K</p>
+        </div>
+        <div class="menu-card">
+          <div class="gambar">
+            <img src="kopi7h.jpeg" alt="Americano" class="menu-card gambar" />
+          </div>
+          <h3 class="menu-card-title">- Watermelon Squash -</h3>
+          <p class="menu-card-price">IDR 20K</p>
+        </div>
+        <div class="menu-card">
+          <div class="gambar">
+            <img src="kopi7f.jpeg" alt="Americano" class="menu-card gambar" />
+          </div>
+          <h3 class="menu-card-title">- Berry Cocktails -</h3>
+          <p class="menu-card-price">IDR 35K</p>
+        </div>
+        <div class="menu-card">
+          <div class="gambar">
+            <img src="kopi7g.jpeg" alt="Americano" class="menu-card gambar" />
+          </div>
+          <h3 class="menu-card-title">- Lemon Cocktails -</h3>
+          <p class="menu-card-price">IDR 25K</p>
+        </div>
+      </div>
+    </section>
+    <!-- cara agar cepat adalah section#about.about -->
+    <!-- akhiran -->
+
+    <!-- merchandise  -->
+    <section class="merchandise" id="merchandise">
+      <h2>Merchandise <span>Kafe Kucing</span></h2>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium
+        quasi molestiae nesciunt reiciendis similique impedit.
+      </p>
+      <div class="row">
+        <div class="merchandise-card">
+          <div class="merchandise-icons">
+            <a href="#"><i data-feather="shopping-cart"></i></a>
+            <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
+          </div>
+          <div class="merchandise-image">
+            <img src="marchandise.img\tumbler1.1.jpeg" alt="merchandise1" />
+          </div>
+          <div class="merchandise-content">
+            <h3>Tumbler Classic</h3>
+            <div class="merchandise-star">
+              <i data-feather="star" class="star"></i>
+              <i data-feather="star" class="star"></i>
+              <i data-feather="star"  class="star"></i>
+              <i data-feather="star"></i>
+              <i data-feather="star"></i>
+              <!-- digunakan untuk memberi icon bintang dibawah nama marchandise -->
+            </div>
+            <div class="merchandise-price">IDR 550K <span>IDR 600K</span></div>
+            <!-- digunakan untuk memberi harga dibawah merchandise -->
+          </div>
+        </div>
+
+        <div class="merchandise-card">
+          <div class="merchandise-icons">
+            <a href="#"><i data-feather="shopping-cart"></i></a>
+            <a href="#"  class="item-detail-button"><i data-feather="eye"></i></a>
+          </div>
+          <div class="merchandise-image">
+            <img src="marchandise.img\tumbler2.jpeg" alt="merchandise2" />
+          </div>
+          <div class="merchandise-content">
+            <h3>Tumbler Disney</h3>
+            <div class="merchandise-star">
+              <i data-feather="star" class="star"></i>
+              <i data-feather="star" class="star"></i>
+              <i data-feather="star" class="star"></i>
+              <i data-feather="star" class="star"></i>
+              <i data-feather="star" class="star"></i></i>
+              <!-- digunakan untuk memberi icon bintang dibawah nama marchandise -->
+            </div>
+            <div class="merchandise-price">IDR 650K <span>IDR 750K</span></div>
+            <!-- digunakan untuk memberi harga dibawah merchandise -->
+          </div>
+        </div>
+
+        <div class="merchandise-card">
+          <div class="merchandise-icons">
+            <a href="#"><i data-feather="shopping-cart"></i></a>
+            <a href="#"  class="item-detail-button"><i data-feather="eye"></i></a>
+          </div>
+          <div class="merchandise-image">
+            <img src="marchandise.img\tumbler5.jpeg" alt="merchandise3" />
+          </div>
+          <div class="merchandise-content">
+            <h3>Tumbler</h3>
+            <div class="merchandise-star">
+              <i data-feather="star" class="star"></i>
+              <i data-feather="star" class="star"></i></i>
+              <i data-feather="star" class="star"></i></i>
+              <i data-feather="star"></i>
+              <i data-feather="star"></i>
+              <!-- digunakan untuk memberi icon bintang dibawah nama marchandise -->
+            </div>
+            <div class="merchandise-price">IDR 380K <span>IDR 400K</span></div>
+            <!-- digunakan untuk memberi harga dibawah merchandise -->
+          </div>
+        </div>
+
+        <div class="merchandise-card">
+          <div class="merchandise-icons">
+            <a href="#"><i data-feather="shopping-cart"></i></a>
+            <a href="#"  class="item-detail-button"><i data-feather="eye"></i></a>
+          </div>
+          <div class="merchandise-image">
+            <img src="marchandise.img\tumbler4.jpeg" alt="merchandise1" />
+          </div>
+          <div class="merchandise-content">
+            <h3>Classic Mug</h3>
+            <div class="merchandise-star">
+              <i data-feather="star" class="star"></i>
+              <i data-feather="star" class="star"></i>
+              <i data-feather="star"></i>
+              <i data-feather="star"></i>
+              <i data-feather="star"></i>
+              <!-- digunakan untuk memberi icon bintang dibawah nama marchandise -->
+            </div>
+            <div class="merchandise-price">IDR 280K <span>IDR 300K</span></div>
+            <!-- digunakan untuk memberi harga dibawah merchandise -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- akhiran -->
+
+    <!-- menu -->
+    <!-- contact section -->
+    <section id="contact" class="contact">
+      <h2><span>Contact</span>Kami</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, ratione.
+      </p>
+      <div class="row">
+        <!-- <div class="mapp"> -->
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.3445335303586!2d111.41357506926298!3d-8.036468606102835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7973fa0214b6cb%3A0xe14f18f2a7aa8373!2sSoto%20Ayam%20Pringgondani!5e0!3m2!1sid!2sid!4v1703937320486!5m2!1sid!2sid"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="map"
+        ></iframe>
+        <!-- </div> -->
+        <form action="">
+          <div class="input-group">
+            <i data-feather="user"></i>
+            <input type="text" placeholder="Nama" />
+            <!-- data-feather digunakan untuk mengambil ikon dari feater -->
+          </div>
+          <div class="input-group">
+            <i data-feather="mail"></i>
+            <input type="text" placeholder="Email" />
+            <!-- data-feather digunakan untuk mengambil ikon dari feater -->
+          </div>
+          <div class="input-group">
+            <i data-feather="phone"></i>
+            <input type="text" placeholder="Telphone" />
+            <!-- data-feather digunakan untuk mengambil ikon dari feater -->
+          </div>
+          <button type="submit" class="btn">KIRIM</button>
+        </form>
+      </div>
+    </section>
+    <!-- akhirab -->
+    <!-- footer -->
+    <footer>
+      <div class="sosial">
+        <a href="#"><i data-feather="instagram"></i></a>
+        <a href="#"><i data-feather="twitter"></i></a>
+        <a href="#"><i data-feather="facebook"></i></a>
+      </div>
+      <div class="links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#menu">Menu</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="credit">
+        <p>Created by <a href="">Kevina Maydiva HS</a>. &copy 2023</p>
+      </div>
+    </footer>
+    <!-- akhiran -->
+
+    <!-- Modal Box item detail  -->
+    <div class="modal" id="item-detail-modal">
+      <div class="modal-container">
+        <a href="#" class="close-icon"><i data-feather="x"></i></a>
+        <div class="modal-content">
+          <img id="modalGambar" src="marchandise.img\tumbler1.1.jpeg" alt="marchandise1">
+          <div class="merchandise-content">
+            <h3 id="modalJudul">Merchandise 1</h3>
+            <p id="modalDesc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus quasi vel quae eaque, voluptates aliquid molestiae nihil similique necessitatibus natus ullam odio nemo harum! Esse?</p>
+            <div class="merchandise-star">
+              <i data-feather="star" class="star"></i>
+              <i data-feather="star" class="star"></i>
+              <i data-feather="star" class="star"></i>
+              <i data-feather="star" class="star"></i>
+              <i data-feather="star" class="star"></i>
+            </div>
+            <div class="merchandise-price" id="modalPrice">IDR 600K <span id="modalPriceDisc">IDR 550K</span> </div>
+            <a href="#"><i data-feather="shopping-cart"></i><span>add to cart</span></a>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <!-- akhiran -->
+
+    <!-- feater icon -->
+    <script>
+      feather.replace();
+    </script>
+    <!-- my javascript -->
+    <script src="scripts.js"></script>
+  </body>
+</html>

@@ -1,0 +1,677 @@
+:root {
+  --primary: #a9a9a9;
+  --bg: #010101;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* borderbox digunakan untuk agar kita tidak usah mengatur lagi dimensi dari element saat kita kasih padding atau border */
+  outline: none;
+  /* berguna ketika kita ingin mengasih style form atau button*/
+  border: none;
+  /* supaaya kita yang punya kendali atas bordernya */
+  text-decoration: none;
+  /* supaya tidak ada garis bawahnya ketika kita mengasih link */
+  font-family: "Poppins";
+}
+
+.body {
+  background-color: var(--bg);
+  color: #000000;
+  /* min-height: 3000px; */
+}
+/* navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  /* supaya jarak antar elemen sama kiri kanan */
+  align-items: center;
+  /* agar sejajar horizontal */
+  padding: 1.4rem 7%;
+  /* kanan kirinya tetap mempertahankan 7% */
+  background-color: rgba(255, 255, 255, 0.8);
+  /* diubah menjadi rgba agar transparansi */
+  /* border-bottom: 1px solid #5d462d; */
+  /* border bottom digunakan agar terdapat garis dibawahnya */
+  position: fixed;
+  /* agar navbar tetap diatas waktu discrol */
+  top: 0;
+  left: 0;
+  right: 0;
+  /* agar navbar selalu berada diatas */
+  z-index: 9999;
+}
+.navbar .navbar-logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+  font-style: italic;
+}
+
+.navbar .navbar-logo span {
+  color: #8b0000;
+}
+
+.navbar .navbar-nav a {
+  color: #010101;
+  display: inline-block;
+  /* agar waktu dikasih margin tanpa turun kebawah */
+  font-size: 1.4rem;
+  margin: 0 1rem;
+}
+
+.navbar .navbar-nav a:hover {
+  color: var(--primary);
+  /* berguna agar jika di hover akan berubah */
+}
+
+.navbar .navbar-nav a::after {
+  content: "";
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid var(--primary);
+  transform: scaleX(0);
+  transition: 0.2s linear;
+}
+
+.navbar .navbar-nav a:hover::after {
+  transform: scaleX(0.5);
+}
+/* untuk mengatur tulisan di navbar agar keluar garis otomatis jika di hover */
+.navbar .navbar-extra a {
+  color: #000000;
+  margin: 0 0.5rem;
+}
+/* untuk mengatur warna & position icon dinavbar */
+
+.navbar .navbar-extra a:hover {
+  color: var(--primary);
+}
+/* untuk mengatur jika dihover mengeluarkan warna */
+
+#hamburger-menu {
+  display: none;
+}
+/* hero section digunakan untuk mengatur foto dibackground dan mengstyle tulisan dll */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  /* align-item untuk vertikal */
+  background-image: url(kopi3.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 30%;
+  bottom: 0;
+  /* dikasih bottom agar teks box nya bisa diklik/bagian beli sekarang */
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0) 8%,
+    rgba(119, 136, 153, 0) 50%
+  );
+}
+
+.hero .content {
+  padding: 1.4rem 7%;
+  max-width: 60rem;
+}
+
+.hero .content h1 {
+  /* digunakan untuk menstyle judul/h1 */
+  font-size: 5rem;
+  color: #8b0000;
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5);
+  /* digunakan untuk membuat bayangan pada judul/h1 */
+  line-height: 1.2;
+}
+.hero .content h1 span {
+  color: var(--bg);
+}
+.hero .content p {
+  /* digunakan untuk menstyle paragraf */
+  font-size: 1.6rem;
+  margin-top: 0.5rem;
+  line-height: 1.4;
+  font-weight: 100;
+  /* color: #fff5f5; */
+  /* font weight digunakan untuk mentipiskan font */
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5);
+  /* digunakan untuk membuat bayangan pada paragraf */
+  mix-blend-mode: difference;
+  /* jika ketemu warna yang berbeda maka akan ganti sesuai warna tersebut/ jadi kontras*/
+}
+
+.hero .content .cta {
+  /* digunkan untuk menstyle bagian teks box / bagian beli sekarang */
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 1rem 3rem;
+  font-size: 1.4rem;
+  color: var(--bg);
+  background-color: #8b0000;
+  border-radius: 0.5rem;
+  box-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+}
+
+/* about */
+.about,
+.menu,
+.merchandise,
+.contact {
+  padding: 8rem 7% 1.4rem;
+  /* atas 10rem kiri kanan 7% bawah 1.4rem*/
+  /* .about,.menu (agar bisa mengatur 2 class secara bersamaan yaitu menu dan about ) */
+}
+.about h2,
+.menu h2,
+.merchandise h2,
+.contact h2 {
+  text-align: center;
+  font-size: 2.6rem;
+
+  /* mengatur ketinggian tulisan */
+  /* .about h2,.menu h2 (agar bisa mengatur 2 class secara bersamaan yaitu menu dan about ) */
+}
+.about h2 span,
+.menu h2 span,
+.merchandise h2 span,
+.contact h2 span {
+  color: #8b0000;
+  /* .about h2 span,.menu h2 span (agar bisa mengatur 2 class secara bersamaan yaitu menu dan about ) */
+}
+
+.about .row {
+  display: flex;
+  padding: 2rem;
+  /* dikasih flex supaya bersebelahan dengan gambar teksnya */
+}
+.about .row .about-img {
+  flex: 1 1 30rem;
+  /* grow nya 1 string nya 1 ukurannya 45rem */
+}
+.about .row .about-img img {
+  width: 100%;
+  /* dikasih 100% supaya memenuhi 1 bagian flexnya */
+}
+.about .row .content {
+  flex: 1 1 35rem;
+  padding: 0 1rem;
+  /* padding atas bawah 0 kanan kiri 1 rem */
+}
+
+.about .row .content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+.about .row .content p {
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+  font-weight: 80;
+  line-height: 1.6;
+}
+
+/* Menu */
+.menu h2,
+.contact h2 {
+  margin-bottom: 1rem;
+}
+.menu p,
+.merchandise p,
+.contact p {
+  text-align: center;
+  /* digunakan untuk mengatur pagaragraf agar rata tengah */
+  max-width: 30rem;
+  margin: auto;
+  font-size: 1.2rem;
+  font-weight: 100;
+  line-height: 1.6;
+}
+.menu .row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 5rem;
+  justify-content: center;
+}
+
+.menu .row .menu-card {
+  text-align: center;
+  padding-bottom: 2rem;
+  /* digunakan untuk mengatur jarak atas/bawah antar gambar */
+}
+
+.gambar {
+  width: 25rem;
+}
+
+.menu .row .menu-card img {
+  border-radius: 50%;
+  width: 80%;
+}
+
+.menu .row .menu-card .menu-card-title {
+  margin: 1.5rem auto 0.5rem;
+}
+/* digunakan untuk judul menu */
+/* DIBAWAH INI AGAR WEB RESPONSIF TERHADAP BENTUK BENTUK YANG DI TENTUKAN */
+/* Media Queries*/
+
+/* laptop */
+@media (max-width: 1366px) {
+  html {
+    font-size: 75%;
+  }
+}
+
+/* tablet */
+@media (max-width: 768px) {
+  html {
+    font-size: 62.5%;
+  }
+
+  #hamburger-menu {
+    display: inline-block;
+  }
+  /* digunakan agar jika responsif tablet hamburger menu otomatis muncul */
+  .navbar .navbar-nav {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: #8b0000;
+    width: 30rem;
+    height: 100vh;
+    /* digunakan untuk menu navbar tersebut hilang dan berpindah ke menu hamburger/kekanan jika mode table */
+    transition: 0.3s;
+  }
+  .navbar .navbar-nav.active {
+    right: 0;
+  }
+  .navbar .navbar-nav a {
+    color: var(--bg);
+    display: block;
+    margin: 1.5rem;
+    padding: 0.5rem;
+    font-size: 2rem;
+  }
+  /* digunakan untuk menstyle atau mengatur menu yang ada didalam hamburger */
+  .navbar .navbar-nav a::after {
+    transform-origin: 0 0;
+  }
+  /* digunkaan untuk membuat navbar yang bagian hamburger terliihat dan tidak */
+  /* transform-origin berguna untuk membuat garis otomatis dibawah tulisan */
+  .navbar .navbar-nav a:hover::after {
+    transform: scaleX(0.2);
+  }
+  /* digunakan untuk mengatur ukuran garis */
+  .about .row {
+    flex-wrap: wrap;
+    /* agar kalau dikecilkan ke size tablet tulisan akan otomatis turun kebawah gambar */
+  }
+  .about .row .about-img img {
+    /* digunakan agar gambar sedikit menecil+ melebar */
+    height: 24rem;
+    object-fit: cover;
+    /* digunakan agar gambar tidak ketarik pada saat merubah posisi */
+    object-position: center;
+    /* agar gambar pas ditengah */
+  }
+
+  .about .row .content {
+    padding: 0;
+  }
+  .about .row .content h3 {
+    margin-top: 1rem;
+    font-size: 2rem;
+  }
+  .about .row .content p {
+    font-size: 1.2rem;
+  }
+
+  .menu p {
+    font-size: 1.2rem;
+    /* digunakan untuk mengatur fontsize ditampilan tablet dan hp */
+  }
+  .row {
+    flex-wrap: wrap;
+  }
+  .map {
+    height: 30rem;
+  }
+  .contact .row form {
+    padding-top: 0;
+  }
+
+  .navbar .search-form {
+    width: 90%;
+    right: 2rem;
+  }
+  /*  */
+  .modal-content{
+    flex-wrap: wrap;
+  }
+  /* style yang ditaruh di dalam class tablet ini adalah style yang bisa ter responsif di tablet */
+}
+
+/* mobile */
+@media (max-width: 450px) {
+  html {
+    font-size: 55%;
+  }
+}
+
+/* contact */
+.contact .row {
+  display: flex;
+  /* supaya ngatur iframe dan form nya gampang */
+  margin-top: 2rem;
+  /* agar tidak terlalu nempel */
+  /* flex-wrap: wrap; */
+  /* agar bisa turun kebawah */
+  /* flex-wrap di hapus dulu dikarenakan agar form bisa terletak di samping maps */
+}
+.contact .row .map {
+  flex: 1 1 45rem;
+  width: 100%;
+  /* supaaya petanya penuh */
+  object-fit: cover;
+  /* background-color: #b3b3b3;  */
+}
+.contact .row form {
+  flex: 1 1 45rem;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+/* .mapp{ */
+/* justify-content: center; */
+/* display: flex; */
+/* } */
+
+.contact .row form .input-group {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  background-color: #fff;
+  border: 1px solid #000000;
+  padding-left: 2rem;
+}
+.contact .row form .input-group input {
+  width: 100%;
+  padding: 2rem;
+  font-size: 1.7rem;
+  background-color: none;
+  color: #000000;
+}
+.btn {
+  margin-top: 3rem;
+  display: inline-block;
+  padding: 1rem 3rem;
+  font-size: 1.7rem;
+  color: var(--bg);
+  background-color: #8b0000;
+  cursor: pointer;
+}
+
+/* footer */
+footer {
+  background-color: #8b0000;
+  text-align: center;
+  padding: 1rem 0 3rem;
+  margin-top: 3rem;
+}
+footer .sosial {
+  padding: 1rem 0;
+}
+footer .sosial a {
+  color: #000000;
+  margin: 1rem;
+}
+footer .sosial a:hover,
+footer .links a:hover {
+  color: #fff;
+}
+footer .links {
+  margin-bottom: 1.4rem;
+}
+footer .links a {
+  color: #000000;
+  padding: 0.7rem 1rem;
+}
+footer .credit {
+  font-size: 0.8rem;
+}
+footer .credit a {
+  color: #000000;
+  font-weight: 700;
+}
+
+/* navbar search form */
+.navbar .search-form {
+  position: absolute;
+  top: 100%;
+  right: 5%;
+  background-color: #fff;
+  width: 27rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  transform: scaleY(0);
+  /* agar elemen tidak mempunyai tinggi atau menghilang dari tampilan */
+  transform-origin: top;
+  /* agar bisa dianimasikan seolah olah dari atas */
+  transition: 0.3s;
+  /* digunakan untuk mengatur form search */
+}
+
+.navbar .search-form.active {
+  transform: scaleY(1);
+  /* digunakan untuk memunculkan form */
+}
+
+.navbar .search-form input {
+  height: 100%;
+  width: 100%;
+  font-size: 1.6rem;
+  color: #000000;
+  padding: 1rem;
+  /* digunakan untuk mengatur bagian font di dalam form search */
+}
+
+.navbar .search-form label {
+  cursor: pointer;
+  font-size: 2rem;
+  margin-right: 1.5rem;
+  color: #000000;
+  /* digunakan untuk mengatur logo search di bagian form search */
+}
+
+/* Merchandise Section */
+.merchandise .row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 1.5rem;
+  margin-top: 4rem;
+}
+
+.merchandise .merchandise-card {
+  text-align: center;
+  border: 1px solid #000000;
+  padding: 2rem;
+}
+.merchandise .merchandise-icons {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.merchandise .merchandise-icons a {
+  width: 4rem;
+  height: 4rem;
+  color: #000000;
+  margin: 0.3rem;
+  border: 1px solid #000000;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  /* untuk bikin elemen ke tengah secara horizontal*/
+  align-items: center;
+  /* untuk bikin elemen ke tengah secara vertical */
+}
+
+.merchandise .merchandise-icons a:hover {
+  background-color: #8b0000;
+  border: 1px solid #8b0000;
+}
+.merchandise .merchandise-image {
+  padding: 2rem 0;
+}
+.merchandise .merchandise-image img {
+  height: 30rem;
+}
+.merchandise .merchandise-content h3 {
+  font-size: 2rem;
+}
+.merchandise .merchandise-star {
+  font-size: 1.7rem;
+  padding: 0.8rem;
+  color: #8b0000;
+  /* digunakan untuk men style warna taau pinggir starnya */
+}
+.merchandise .merchandise-star .star {
+  fill: #8b0000;
+  /* untuk memberi warna di dalam starnya */
+}
+.merchandise .merchandise-price {
+  font-size: 1.3rem;
+  font-weight: bold;
+  /* digunkan untuk mengatur bagian pricenya sebelum dicoret */
+}
+.merchandise .merchandise-price span {
+  text-decoration: line-through;
+  font-weight: lighter;
+  font-size: 1rem;
+  /* digunakan untuk men style di bagian span agar tulisan tercoret */
+}
+
+/* shopping-card */
+.shopping-card {
+  position: absolute;
+  top: 100%;
+  right: -100%;
+  width: 35rem;
+  height: 100vh;
+  padding: 0 1.5rem;
+  color: #000000;
+  background-color: #8b0000;
+  transition: 0.3s;
+}
+.shopping-card img {
+  height: 6rem;
+  border-radius: 50%;
+  /* boder radius digunakan untuk membuat gambar bulat */
+}
+.shopping-card .card-item {
+  margin: 2rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  /* gap digunakan untuk menjauhkan objek yang dituju dengan objek yang lain */
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed #000000;
+  position: relative;
+}
+.shopping-card h3 {
+  font-size: 1.6rem;
+  padding-bottom: 0.5rem;
+}
+.shopping-card .item-price {
+  font-size: 1.2rem;
+}
+.shopping-card .remove {
+  position: absolute;
+  right: 1rem;
+  cursor: pointer;
+}
+.shopping-card .remove:hover {
+  color: #fff;
+}
+.shopping-card.active {
+  right: 0;
+}
+
+/* modal box */
+/* item detail */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.modal-container {
+  position: relative;
+  background-color: #fff;
+  color: #000000;
+  margin: 15% auto;
+  padding: 1.2rem;
+  border: 1px solid #8b0000;
+  width: 80%;
+  height: max-content;
+  animation: animateModal 0.5s;
+}
+/* modal animation */
+/* digunakan untuk mengatur animasi view produk seperti muncul dari atas */
+@keyframes animateModal {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to{
+    top: 0;
+    opacity: 1;
+  }
+}
+
+.modal-container .close-icon {
+  position: absolute;
+  right: 1rem;
+}
+
+.modal-content {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.modal-content img {
+  height: 15rem;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+}
+
+.modal-container p {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  margin-top: 1.2rem;
+}
+.modal-content a {
+  display: flex;
+  gap: 1rem;
+  width: 12rem;
+  background-color: #8b0000;
+  color: #000000;
+  margin-top: 1rem;
+  padding: 1rem 1.6rem;
+}
+
