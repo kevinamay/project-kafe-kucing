@@ -20,13 +20,17 @@
     <!-- mystyle -->
     <link rel="stylesheet" href="kucing.css" />
     <!-- alpinejs -->
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
     <!-- app -->
     <script src="src\app.js"></script>
   </head>
   <body>
     <!-- narbar start -->
-    <nav class="navbar">
+    <nav class="navbar" x-data>
+      <!-- ditambah x-data berguna untuk menghubungkan ke data array yang ada -->
       <a href="#" class="navbar-logo">Kafe<span>Kucing</span></a>
       <!-- agar kata kucingnya beda warna kita kasih span -->
       <div class="navbar-nav">
@@ -40,7 +44,15 @@
       <div class="navbar-extra">
         <a href="#" id="search-button"><i data-feather="search"></i></a>
         <!--<i data-feather="search"></i> diambil dari FEATHER yang kemudian tersambung di github (code tersebut diambil dari github)  -->
-        <a href="#" id="shopping-cart-button"><i data-feather="shopping-cart"></i></a>
+        <a href="#" id="shopping-cart-button">
+          <i data-feather="shopping-cart"></i>
+          <span
+            class="quantity-badge"
+            x-show="$store.cart.quantity"
+            x-text="$store.cart.quantity"
+          ></span>
+          <!-- berguna untuk agar dicart product dapat bertambah / bisa ditambahkan -->
+        </a>
         <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
       </div>
       <!-- search form start -->
@@ -49,31 +61,21 @@
         <label for="search-box"><i data-feather="search"></i></label>
       </div>
       <!-- akhiran -->
+
       <!-- shopping cart -->
       <div class="shopping-card">
         <div class="card-item">
-          <img src="marchandise.img\tumbler1.1.jpeg" alt="merchandise1">
+          <img src="marchandise\tumbler1.1.jpeg" alt="merchandise1" />
           <div class="item-detail">
             <h3>Tumbler Classic</h3>
-            <div class="item-price">650K</div>
+            <div class="item-price">
+              <span>Rp 450.000</span> &times;
+              <button id="remove">&minus;</button>
+              <span>1</span>
+              <button id="add">&plus;</button> &equals;
+              <span>Rp 450.000</span>
+            </div>
           </div>
-          <i data-feather="trash-2" class="remove"></i>
-        </div>
-        <div class="card-item">
-          <img src="marchandise.img\tumbler2.jpeg" alt="merchandise1">
-          <div class="item-detail">
-            <h3>Tumbler Disney</h3>
-            <div class="item-price">550K</div>
-          </div>
-          <i data-feather="trash-2" class="remove"></i>
-        </div>
-        <div class="card-item">
-          <img src="marchandise.img\tumbler5.jpeg" alt="merchandise1">
-          <div class="item-detail">
-            <h3>Tumbler</h3>
-            <div class="item-price">380K</div>
-          </div>
-          <i data-feather="trash-2" class="remove"></i>
         </div>
       </div>
       <!-- akhiran -->
@@ -178,104 +180,121 @@
     <!-- akhiran -->
 
     <!-- merchandise  -->
-    <section class="merchandise" id="merchandise">
+    <section class="merchandise" id="merchandise" x-data="products">
+      <!-- x-data adalah bawaan dari alphine -->
       <h2>Merchandise <span>Kafe Kucing</span></h2>
       <p>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium
         quasi molestiae nesciunt reiciendis similique impedit.
       </p>
       <div class="row">
-        <div class="merchandise-card">
-          <div class="merchandise-icons">
-            <a href="#"><i data-feather="shopping-cart"></i></a>
-            <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
-          </div>
-          <div class="merchandise-image">
-            <img src="marchandise.img\tumbler1.1.jpeg" alt="merchandise1" />
-          </div>
-          <div class="merchandise-content">
-            <h3>Tumbler Classic</h3>
-            <div class="merchandise-star">
-              <i data-feather="star" class="star"></i>
-              <i data-feather="star" class="star"></i>
-              <i data-feather="star"  class="star"></i>
-              <i data-feather="star"></i>
-              <i data-feather="star"></i>
-              <!-- digunakan untuk memberi icon bintang dibawah nama marchandise -->
+        <template x-for="(item, index) in items" x-key="index">
+          <div class="merchandise-card">
+            <div class="merchandise-icons">
+              <a href="#" @click.prevent="$store.cart.add(item)">
+                <!-- digunakan agar jika diklik product bertambah / mengambil item dari array -->
+                <svg
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="marchandise/feather-sprite.svg#shopping-cart" />
+                  <!-- digunakan untuk memunculkan icon shooping-cart -->
+                </svg>
+              </a>
+              <a href="#" class="item-detail-button">
+                <svg
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="marchandise/feather-sprite.svg#eye" />
+                  <!-- digunakan untuk memunculkan icon eye -->
+                </svg>
+              </a>
             </div>
-            <div class="merchandise-price">IDR 550K <span>IDR 600K</span></div>
-            <!-- digunakan untuk memberi harga dibawah merchandise -->
-          </div>
-        </div>
-
-        <div class="merchandise-card">
-          <div class="merchandise-icons">
-            <a href="#"><i data-feather="shopping-cart"></i></a>
-            <a href="#"  class="item-detail-button"><i data-feather="eye"></i></a>
-          </div>
-          <div class="merchandise-image">
-            <img src="marchandise.img\tumbler2.jpeg" alt="merchandise2" />
-          </div>
-          <div class="merchandise-content">
-            <h3>Tumbler Disney</h3>
-            <div class="merchandise-star">
-              <i data-feather="star" class="star"></i>
-              <i data-feather="star" class="star"></i>
-              <i data-feather="star" class="star"></i>
-              <i data-feather="star" class="star"></i>
-              <i data-feather="star" class="star"></i></i>
-              <!-- digunakan untuk memberi icon bintang dibawah nama marchandise -->
+            <div class="merchandise-image">
+              <img :src="`marchandise/${item.img}`" :alt="item.name" />
+              <!-- gambar disini otomatis terganti sesuai dengan yang di app.js -->
             </div>
-            <div class="merchandise-price">IDR 650K <span>IDR 750K</span></div>
-            <!-- digunakan untuk memberi harga dibawah merchandise -->
-          </div>
-        </div>
-
-        <div class="merchandise-card">
-          <div class="merchandise-icons">
-            <a href="#"><i data-feather="shopping-cart"></i></a>
-            <a href="#"  class="item-detail-button"><i data-feather="eye"></i></a>
-          </div>
-          <div class="merchandise-image">
-            <img src="marchandise.img\tumbler5.jpeg" alt="merchandise3" />
-          </div>
-          <div class="merchandise-content">
-            <h3>Tumbler</h3>
-            <div class="merchandise-star">
-              <i data-feather="star" class="star"></i>
-              <i data-feather="star" class="star"></i></i>
-              <i data-feather="star" class="star"></i></i>
-              <i data-feather="star"></i>
-              <i data-feather="star"></i>
-              <!-- digunakan untuk memberi icon bintang dibawah nama marchandise -->
+            <div class="merchandise-content">
+              <h3 x-text="item.name"></h3>
+              <!-- nama merchandise disini otomatis terganti sesuai dengan yang di app.js -->
+              <div class="merchandise-star">
+                <svg
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="marchandise/feather-sprite.svg#star" />
+                  <!-- digunakan untuk memunculkan icon star -->
+                </svg>
+                <svg
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="marchandise/feather-sprite.svg#star" />
+                </svg>
+                <svg
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="marchandise/feather-sprite.svg#star" />
+                </svg>
+                <svg
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="marchandise/feather-sprite.svg#star" />
+                </svg>
+                <svg
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="marchandise/feather-sprite.svg#star" />
+                </svg>
+                <!-- digunakan untuk memberi icon bintang dibawah nama marchandise -->
+              </div>
+              <div class="merchandise-price">
+                <span x-text="rupiah(item.price)"></span>
+              </div>
+              <!-- harga disini otomatis terganti sesuai dengan yang di app.js -->
+              <!-- digunakan untuk memberi harga dibawah merchandise -->
             </div>
-            <div class="merchandise-price">IDR 380K <span>IDR 400K</span></div>
-            <!-- digunakan untuk memberi harga dibawah merchandise -->
           </div>
-        </div>
-
-        <div class="merchandise-card">
-          <div class="merchandise-icons">
-            <a href="#"><i data-feather="shopping-cart"></i></a>
-            <a href="#"  class="item-detail-button"><i data-feather="eye"></i></a>
-          </div>
-          <div class="merchandise-image">
-            <img src="marchandise.img\tumbler4.jpeg" alt="merchandise1" />
-          </div>
-          <div class="merchandise-content">
-            <h3>Classic Mug</h3>
-            <div class="merchandise-star">
-              <i data-feather="star" class="star"></i>
-              <i data-feather="star" class="star"></i>
-              <i data-feather="star"></i>
-              <i data-feather="star"></i>
-              <i data-feather="star"></i>
-              <!-- digunakan untuk memberi icon bintang dibawah nama marchandise -->
-            </div>
-            <div class="merchandise-price">IDR 280K <span>IDR 300K</span></div>
-            <!-- digunakan untuk memberi harga dibawah merchandise -->
-          </div>
-        </div>
+        </template>
       </div>
     </section>
 
@@ -343,10 +362,18 @@
       <div class="modal-container">
         <a href="#" class="close-icon"><i data-feather="x"></i></a>
         <div class="modal-content">
-          <img id="modalGambar" src="marchandise.img\tumbler1.1.jpeg" alt="marchandise1">
+          <img
+            id="modalGambar"
+            src="marchandise\tumbler1.1.jpeg"
+            alt="marchandise1"
+          />
           <div class="merchandise-content">
             <h3 id="modalJudul">Merchandise 1</h3>
-            <p id="modalDesc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus quasi vel quae eaque, voluptates aliquid molestiae nihil similique necessitatibus natus ullam odio nemo harum! Esse?</p>
+            <p id="modalDesc">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Temporibus quasi vel quae eaque, voluptates aliquid molestiae
+              nihil similique necessitatibus natus ullam odio nemo harum! Esse?
+            </p>
             <div class="merchandise-star">
               <i data-feather="star" class="star"></i>
               <i data-feather="star" class="star"></i>
@@ -354,11 +381,14 @@
               <i data-feather="star" class="star"></i>
               <i data-feather="star" class="star"></i>
             </div>
-            <div class="merchandise-price" id="modalPrice">IDR 600K <span id="modalPriceDisc">IDR 550K</span> </div>
-            <a href="#"><i data-feather="shopping-cart"></i><span>add to cart</span></a>
+            <div class="merchandise-price" id="modalPrice">
+              IDR 600K <span id="modalPriceDisc">IDR 550K</span>
+            </div>
+            <a href="#"
+              ><i data-feather="shopping-cart"></i><span>add to cart</span></a
+            >
           </div>
         </div>
-      </div>
       </div>
     </div>
     <!-- akhiran -->
