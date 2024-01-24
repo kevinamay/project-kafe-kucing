@@ -15,6 +15,7 @@
   text-decoration: none;
   /* supaya tidak ada garis bawahnya ketika kita mengasih link */
   font-family: "Poppins";
+  scroll-behavior: smooth;
 }
 
 .body {
